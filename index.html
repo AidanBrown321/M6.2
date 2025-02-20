@@ -1,79 +1,110 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="/css/style.css" />
+    <title>Fancy letterheaded paper</title>
+  </head>
+  <body>
+    <article>
+      <h1>Awesome<br />Company</h1>
 
-<head>
-  <meta charset="utf-8">
-  <title>Hello World!</title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="shortcut icon" href="img/favicon.ico">
-</head>
+      <div class="body-text">
+        <div class="body-top">
+          <h2>Lorem Ipsum</h2>
+          <p>
+            Lorem ipsum odor amet, consectetuer adipiscing elit. Non tellus
+            viverra eget facilisis quisque non. Lacinia viverra sagittis mattis
+            tortor orci consectetur molestie consectetur.
+          </p>
+        </div>
+        <hr />
+        <div class="two-column">
+          <div class="column">
+            <h3>What is Lorem Ipsum?</h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem
+              ipsum odor amet, consectetuer adipiscing elit. Taciti lacus non
+              venenatis euismod class. Varius laoreet sagittis eget aenean nam
+              litora quam. Lobortis enim sapien magnis fermentum arcu nam.
+              Semper id turpis inceptos mattis; ullamcorper parturient platea?
+            </p>
 
-<body>
-  <h1>HTML Rocks!</h1>
-  <p>
-    <button  onclick="helloWorld()">Prints Hello World to the Developer console</button>
-  </p>
-  <hr>
-  <form id="addForm">
-    <label for="num1">Number 1:</label>
-    <input type="number" id="num1" name="num1" required>
-    <br>
-    <label for="num2">Number 2:</label>
-    <input type="number" id="num2" name="num2" required>
-    <br>
-    <button type="submit">Add Numbers</button>
-  </form>
+            <h3>Where does it come from?</h3>
+            <p>
+              Class quis efficitur blandit lectus eleifend dapibus. Euismod nisi
+              ridiculus inceptos morbi malesuada quam platea rhoncus. Tristique
+              dignissim tellus curae malesuada nullam urna dis. Class pharetra
+              porta sodales tempor facilisis lectus. Curabitur nam venenatis
+              blandit taciti mollis pellentesque faucibus interdum. Vivamus
+              dictumst donec himenaeos scelerisque iaculis vestibulum lacinia.
+              Urna tristique taciti mus congue commodo non quisque bibendum
+              pellentesque. Natoque magnis gravida mollis venenatis sit bibendum
+              interdum volutpat pellentesque.
+            </p>
+          </div>
+          <div class="column">
+            <h3>Why do we use it?</h3>
+            <p>
+              Lorem ipsum odor amet, consectetuer adipiscing elit. Nunc nibh
+              neque blandit vestibulum elementum aliquam convallis. Semper
+              suscipit accumsan fames potenti vel vestibulum laoreet metus. Nibh
+              massa etiam blandit, pulvinar vitae cubilia. Congue ut dictumst
+              lobortis sapien nascetur fermentum.
+            </p>
 
-  <label id="result">Result:</label>
+            <h3>Where can I get some?</h3>
+            <p>
+              Lorem ipsum odor amet, consectetuer adipiscing elit. Enim habitant
+              est convallis laoreet posuere fames. Habitasse inceptos dis
+              pellentesque luctus himenaeos suspendisse venenatis. Hac donec
+              augue blandit elementum amet sodales imperdiet iaculis. Taciti
+              ultrices proin tempus per eget. Sagittis ut massa molestie
+              torquent suscipit auctor mi ridiculus fringilla.
+            </p>
+            <h3>Choose an option:</h3>
+            <form id="alert-form">
+              <input type="radio" id="option1" name="option" value="option1" />
+              <label for="option1">1st Option</label><br />
+              <input
+                type="radio"
+                id="option2"
+                name="option"
+                value="option2"
+                checked
+              />
+              <label for="option2">2nd Option</label><br />
+              <input type="radio" id="option3" name="option" value="option3" />
+              <label for="option3">3rd Option</label>
+              <br />
+              <button type="submit">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
 
-  <hr>
+      <address>
+        <p>The Awesome Company</p>
+        <p>
+          102-112 Frail Bend Bridge<br />
+          The Dwindlings<br />
+          Little Hornet<br />
+          HX3 9ZQ<br />
+          UK
+        </p>
+      </address>
+    </article>
+    <script type="module" script="js/main.js">
+      import { displayAlert, helloWorld } from "./js/main.js";
 
-  <button id="jokeButton">Get a Random Joke</button>
-  <p id="joke"></p>
-
-  <script type="module" script="js/main.js">
-    import {helloWorld, add, fetchRandomJoke} from './js/main.js';
-
-    // This shows how to assign a function to the window object
-    // so that it can be called from the browser console
-    window.helloWorld = helloWorld;
-
-    // This shows how to add an event listener to a button in the HTML
-    // and call a function when the button is clicked
-    const form = document.getElementById('addForm');
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      const num1 = parseFloat(document.getElementById('num1').value);
-      const num2 = parseFloat(document.getElementById('num2').value);
-      try{
-        const result = add(num1, num2);
-        document.getElementById('result').textContent = `Result: ${result}`;
-      }catch(e){
-        console.error(e);
-        document.getElementById('result').textContent = `Error: ${e.message}`;
-      }
-
-    });
-
-    // this shows how to add an event listener to a button in the HTML
-    // that calls a function that fetches a random joke from an API
-    // and displays it on the page
-    const jokebtn = document.getElementById('jokeButton');
-    const jokeresult = document.getElementById('joke');
-    jokebtn.addEventListener('click', async () => {
-      try {
-        jokeresult.textContent = 'Loading...';
-        const joke = await fetchRandomJoke();
-        document.getElementById('joke').textContent = joke;
-      } catch (e) {
-        console.error(e);
-        document.getElementById('joke').textContent = `Error: ${e.message}`;
-      }
-    });
-  </script>
-
-</body>
-
+      const form = document.getElementById("alert-form");
+      form.addEventListener("submit", function (event) {
+        console.log(event);
+        event.preventDefault();
+        const text = event.target.option.value;
+        displayAlert("You chose: " + text);
+      });
+    </script>
+  </body>
 </html>
